@@ -32,7 +32,9 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Bens Chat ChatRoom</h1>
+        <h1>Bens ChatRoom</h1>
+
+        <a href="https://www.wwilley.com/" ><HomeButton /></a>
         <SignOut />
       </header>
 
@@ -63,6 +65,12 @@ function SignIn() {
 function SignOut() {
   return auth.currentUser && (
     <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
+  )
+}
+function HomeButton() {
+  return auth.currentUser && (
+    <button className="sign-out" >Home
+    </button>
   )
 }
 
@@ -104,9 +112,9 @@ function ChatRoom() {
 
     <form onSubmit={sendMessage}>
 
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
+      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Enter message here" />
 
-      <button type="submit" disabled={!formValue}>🕊️</button>
+      <button type="submit" disabled={!formValue}>send</button>
 
     </form>
   </>)
